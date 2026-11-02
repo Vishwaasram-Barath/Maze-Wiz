@@ -4,7 +4,7 @@ A console-based maze game written in C#. It generates mazes, lets you solve them
 
 ## How to run it (Visual Studio Code)
 
-1. Install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (a newer SDK also works, but the .NET 8 runtime must be installed).
+1. Install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (the SDK, not just the runtime).
 2. Install [Visual Studio Code](https://code.visualstudio.com/) and add the **C# Dev Kit** extension (Extensions panel, `Ctrl+Shift+X`).
 3. Download this repository (green **Code** button, then **Download ZIP** and unzip it) or clone it:
    ```
