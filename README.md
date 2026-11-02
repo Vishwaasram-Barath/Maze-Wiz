@@ -5,7 +5,7 @@ A* search solve them, and includes a chase mode with AI opponents, hints and pow
 saved to and loaded from files.
 
 ## Run
-Requires the [.NET 8 SDK](https://dotnet.microsoft.com/download).
+Requires the [.NET 10.0 SDK](https://dotnet.microsoft.com/download).
 
 ```bash
 dotnet run
