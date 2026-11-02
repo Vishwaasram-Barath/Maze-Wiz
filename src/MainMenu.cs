@@ -26,21 +26,21 @@ namespace NEA___Maze_Wiz
             switch (Console.ReadLine())
             {
                 case "1":
-                     GenerateMazeMenu generateMazeMenu = new GenerateMazeMenu();
-                     maze = generateMazeMenu.Display();
-                     PostGenerationMenu();
-                       break;
-                  case "2":
-                      LoadMaze();
-                      break;
-                  case "5":
-                      Environment.Exit(0);
-                      break;
-                  default:
-                      Console.WriteLine("Invalid choice. Try again.");
-                      Display();
-                      break;
-             }
+                    GenerateMazeMenu generateMazeMenu = new GenerateMazeMenu();
+                    maze = generateMazeMenu.Display();
+                    PostGenerationMenu();
+                    break;
+                case "2":
+                    LoadMaze();
+                    break;
+                case "5":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    Display();
+                    break;
+            }
         }
 
         private void PostGenerationMenu()
@@ -53,7 +53,7 @@ namespace NEA___Maze_Wiz
             Console.WriteLine("4. Save or Load Maze");
             Console.WriteLine("5. Return to Main Menu");
 
-             HandlePostGenerationInput();
+            HandlePostGenerationInput();
         }
 
         private void HandlePostGenerationInput()
@@ -73,17 +73,17 @@ namespace NEA___Maze_Wiz
                     solveMazeMenu.Display();
                     break;
                 case "4":
-                       SaveOrLoadMaze();
-                      PostGenerationMenu();
-                      break;
-                  case "5":
-                      Display();
-                      break;
-                  default:
-                      Console.WriteLine("Invalid choice. Try again.");
-                      PostGenerationMenu();
-                      break;
-             }
+                    SaveOrLoadMaze();
+                    PostGenerationMenu();
+                    break;
+                case "5":
+                    Display();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    PostGenerationMenu();
+                    break;
+            }
         }
 
         private void SaveOrLoadMaze()
@@ -94,19 +94,19 @@ namespace NEA___Maze_Wiz
             Console.WriteLine("2. Load Maze");
             string choice = Console.ReadLine();
 
-             switch (choice)
-             {
-                 case "1":
-                     SaveMaze();
-                     break;
-                 case "2":
-                     LoadMaze();
-                     break;
-                 default:
-                     Console.WriteLine("Invalid choice. Try again.");
-                     SaveOrLoadMaze();
-                     break;
-             }
+            switch (choice)
+            {
+                case "1":
+                    SaveMaze();
+                    break;
+                case "2":
+                    LoadMaze();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    SaveOrLoadMaze();
+                    break;
+            }
         }
 
         private void SaveMaze()
@@ -115,16 +115,16 @@ namespace NEA___Maze_Wiz
             string fileName = Console.ReadLine();
             try
             {
-                 using (StreamWriter writer = new StreamWriter(fileName))
-                 {
-                     for (int i = 0; i < maze.GetLength(0); i++)
-                     {
-                         for (int j = 0; j < maze.GetLength(1); j++)
-                           {
-                               writer.Write(maze[i, j] + " ");
-                          }
-                          writer.WriteLine();
-                     }
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    for (int i = 0; i < maze.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < maze.GetLength(1); j++)
+                        {
+                            writer.Write(maze[i, j] + " ");
+                        }
+                        writer.WriteLine();
+                    }
                 }
                 Console.WriteLine("Maze saved successfully.");
                 Console.WriteLine("Press SPACE key to enter Post Generation Menu");
@@ -163,62 +163,62 @@ namespace NEA___Maze_Wiz
                 else if (keyInfo.Key == ConsoleKey.Backspace && fileName.Length > 0)
                 {
                     fileName = fileName.Substring(0, fileName.Length - 1);
-                      Console.Write("\b \b"); //moves cursor back, erases a char and then moves back again when BACKSPACE is pressed
-                 }
-                 else if (!char.IsControl(keyInfo.KeyChar)) //checks for valid characters to append to fileName
-                 {
-                     fileName += keyInfo.KeyChar;
-                     Console.Write(keyInfo.KeyChar);
-                 }
+                    Console.Write("\b \b"); //moves cursor back, erases a char and then moves back again when BACKSPACE is pressed
+                }
+                else if (!char.IsControl(keyInfo.KeyChar)) //checks for valid characters to append to fileName
+                {
+                    fileName += keyInfo.KeyChar;
+                    Console.Write(keyInfo.KeyChar);
+                }
             }
 
             try
             {
-                 using (StreamReader sr = new StreamReader(fileName))
-                 {
-                     string line;
-                     List<string[]> rows = new List<string[]>();
+                using (StreamReader sr = new StreamReader(fileName))
+                {
+                    string line;
+                    List<string[]> rows = new List<string[]>();
 
-                     while ((line = sr.ReadLine()) != null)
-                     {
-                         string[] parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                         rows.Add(parts);
-                     }
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] parts = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        rows.Add(parts);
+                    }
 
-                     int Rows = rows.Count;
-                     int Cols = rows[0].Length;
+                    int Rows = rows.Count;
+                    int Cols = rows[0].Length;
 
-                     maze = new int[Rows, Cols];
+                    maze = new int[Rows, Cols];
 
-                     for (int i = 0; i < Rows; i++)
-                     {
-                         for (int j = 0; j < Cols; j++)
-                         {
-                             maze[i, j] = int.Parse(rows[i][j]);
-                         }
-                     }
-                 }
+                    for (int i = 0; i < Rows; i++)
+                    {
+                        for (int j = 0; j < Cols; j++)
+                        {
+                            maze[i, j] = int.Parse(rows[i][j]);
+                        }
+                    }
+                }
 
-                 Console.WriteLine("Maze loaded successfully.");
-                 Console.WriteLine("Press SPACE key to enter Post Generation Menu.");
-                 while (Console.ReadKey(true).Key != ConsoleKey.Spacebar)
-                 {
+                Console.WriteLine("Maze loaded successfully.");
+                Console.WriteLine("Press SPACE key to enter Post Generation Menu.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Spacebar)
+                {
 
-                 }
-                 PostGenerationMenu();
-              }
-             catch (FileNotFoundException)
-             {
-                 Console.WriteLine("File not found.");
-                 Console.ReadKey();
-                 LoadMaze();
-             }
-             catch (Exception ex)
-             {
-                 Console.WriteLine($"Error loading maze: {ex.Message}");
-                 Console.ReadKey();
-                 LoadMaze();
-             }
+                }
+                PostGenerationMenu();
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found.");
+                Console.ReadKey();
+                LoadMaze();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading maze: {ex.Message}");
+                Console.ReadKey();
+                LoadMaze();
+            }
         }
     }
 }

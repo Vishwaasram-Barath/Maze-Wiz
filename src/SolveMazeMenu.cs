@@ -62,7 +62,7 @@ namespace NEA___Maze_Wiz
 
                      if (maze[i, j] == 1)
                      {
-                         Console.Write(" ");
+                         Console.Write("  ");
                      }
                      else if (maze[i, j] == 2)
                      {
@@ -314,7 +314,7 @@ namespace NEA___Maze_Wiz
                      }
                      else if (maze[i, j] == 1)
                      {
-                         Console.Write(" ");
+                         Console.Write("  ");
                      }
                      else if (maze[i, j] == 2)
                      {

@@ -208,10 +208,10 @@ namespace NEA___Maze_Wiz
                switch (cell)
                {
                    case 0: return "██";
-                   case 1: return " ";
+                   case 1: return "  ";
                    case 2: return StartPoint;
                    case 3: return EndPoint;
-                   default: return " ";
+                   default: return "  ";
               }
         }
 

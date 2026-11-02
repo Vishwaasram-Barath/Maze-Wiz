@@ -110,10 +110,10 @@ namespace NEA___Maze_Wiz
             switch (cell)
             {
                 case 0: return "██";
-                case 1: return " ";
+                case 1: return "  ";
                 case 2: return "S ";
                 case 3: return "E ";
-                default: return " ";
+                default: return "  ";
             }
         }
         private void PrintMaze()
